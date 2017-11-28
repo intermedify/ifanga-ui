@@ -1,3 +1,93 @@
-body,
-html {
-  font-family: sans-serif; }
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; }
+
+h1,
+.typo__h1,
+h2,
+.typo__h2,
+h3,
+.typo__h3,
+h4,
+.typo__h4,
+h5,
+.typo__h5,
+h6,
+.typo__h6,
+strong {
+  font-weight: 700; }
+
+h1,
+.typo__h1 {
+  font-size: 25px;
+  font-size: 2.5rem; }
+
+h2,
+.typo__h2 {
+  font-size: 20px;
+  font-size: 2rem; }
+
+h3,
+.typo__h3 {
+  font-size: 17.5px;
+  font-size: 1.75rem; }
+
+h4,
+.typo__h4 {
+  font-size: 15px;
+  font-size: 1.5rem; }
+
+h5,
+.typo__h5 {
+  font-size: 12.5px;
+  font-size: 1.25rem; }
+
+h6,
+.typo__h6 {
+  font-size: 10px;
+  font-size: 1rem; }
+
+h1 small,
+.typo__h1 small,
+h2 small,
+.typo__h2 small,
+h3 small,
+.typo__h3 small,
+h4 small,
+.typo__h4 small,
+h5 small,
+.typo__h5 small,
+h6 small,
+.typo__h6 small {
+  font-size: 65%; }
+
+p {
+  margin-bottom: 1rem; }
+
+code {
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border: 1px solid #cdd2d8;
+  background-color: #e8edf3;
+  padding: 0 0.25rem; }
+
+.a-tag {
+  font-size: 8.75px;
+  font-size: 0.875rem;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  padding: 0.25rem 0.75rem;
+  background-color: #e8edf3;
+  color: #768591; }
+  .a-tag.a-tag--inverse {
+    background-color: #768591;
+    color: #e8edf3; }
+  .a-tag.a-tag--magenta {
+    background-color: #22264b;
+    color: #e0e3fa; }
