@@ -1,0 +1,59 @@
+@import '../../global/mixins';
+@import '../../global/colors';
+@import '../../global/ux';
+@import '../../global/typography';
+
+$button-border-radius: 5px;
+
+.a-button {
+    @extend .ux-default;
+    @include transition(all, 0.2s, ease-in-out);
+    @include border-radius($button-border-radius);
+    @include font-size(0.875);
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    height: 32px;
+    padding: 0 0.875rem;
+    line-height: 32px;
+
+    .a-icon {
+        line-height: 32px;
+    }
+
+    &.a-button--inverse {
+        @extend .ux-inverse;
+    }
+
+    &.a-button--primary {
+        @extend .ux-primary;
+    }
+
+    &:hover {
+        transform: scale(1.02);
+        @include box-shadow(0, 2px, 4px, rgba(0,0,0,0.1));
+        @extend .ux-default-interaction;
+
+        &.a-button--inverse {
+            @extend .ux-inverse-interaction;
+        }
+
+        &.a-button--primary {
+            @extend .ux-primary-interaction;
+        }
+    }
+
+    &.state-a-button--disabled {
+        cursor: not-allowed;
+        color: lighten($simple-grey, 50);
+
+        &.a-button--inverse {
+            color: darken($light-grey, 50);
+        }
+
+        &.a-button--primary {
+            color: darken($contrast-magenta, 50);
+        }
+    }
+}

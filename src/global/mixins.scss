@@ -1,0 +1,125 @@
+@mixin push--auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+@mixin pull--center {
+}
+
+@mixin pull--left {
+    float: left;
+}
+
+@mixin pull--right {
+    float: right;
+}
+
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+    $padding: unquote( ($y / $x) * 100 + '%');
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    } @else {
+        padding-top: $padding;
+    }
+}
+
+@mixin input-placeholder {
+    &.placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+$breakpoints: (
+    'phone': 400px,
+    'phone-wide': 480px,
+    'phablet': 560px,
+    'tablet-small': 640px,
+    'tablet': 768px,
+    'tablet-wide': 1024px,
+    'desktop': 1248px,
+    'desktop-wide': 1440px
+);
+
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin hardware-accelerator($backface: true, $perspective: 1000) {
+    @if $backface {
+        backface-visibility: hidden;
+    }
+    perspective: $perspective;
+}
+
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin box-shadow($left, $top, $radius, $color) {
+    box-shadow: $left $top $radius $color;
+    -webkit-box-shadow: $left $top $radius $color;
+    -moz-box-shadow: $left $top $radius $color;
+}
+
+@mixin transition($property, $duration, $easing: linear) {
+    transition: $property $duration $easing;
+    -webkit-transition: $property $duration $easing;
+    -moz-transition: $property $duration $easing;
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+}
+
+@mixin border-radii($topleft, $topright, $bottomright, $bottomleft) {
+    border-top-left-radius: $topleft;
+    border-top-right-radius: $topright;
+    border-bottom-right-radius: $bottomright;
+    border-bottom-left-radius: $bottomleft;
+    -webkit-border-top-left-radius: $topleft;
+    -webkit-border-top-right-radius: $topright;
+    -webkit-border-bottom-right-radius: $bottomright;
+    -webkit-border-bottom-left-radius: $bottomleft;
+    -moz-border-radius-topleft: $topleft;
+    -moz-border-radius-topright: $topright;
+    -moz-border-radius-bottomright: $bottomright;
+    -moz-border-radius-bottomleft: $bottomleft;
+}
+
+@mixin gradient($color1, $color2) {
+    background-color: $color1;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$color1}, endColorstr=#{$color2});
+    background-image: -moz-linear-gradient(center top, $color1, $color2);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($color1), to($color2));
+}

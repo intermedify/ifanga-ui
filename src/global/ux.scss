@@ -1,0 +1,31 @@
+@import './colors';
+
+.ux-default {
+    background-color: $light-grey;
+    color: $simple-grey;
+}
+
+.ux-inverse {
+    background-color: $simple-grey;
+    color: $light-grey;
+}
+
+.ux-primary {
+    background-color: $simple-magenta;
+    color: $contrast-magenta;
+}
+
+.ux-default-interaction {
+    background-color: lighten($light-grey, 3);
+    color: $simple-grey;
+}
+
+.ux-inverse-interaction {
+    background-color: lighten($simple-grey, 10);
+    color: $light-grey;
+}
+
+.ux-primary-interaction {
+    background-color: lighten($simple-magenta, 10);
+    color: $contrast-magenta;
+}

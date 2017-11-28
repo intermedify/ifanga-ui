@@ -1,0 +1,58 @@
+@import '../../global/box-shadow';
+@import '../../global/mixins';
+
+$card-content-spacing: 1.5rem;
+
+.m-card {
+    position: relative;
+    @include border-radius(0.25rem);
+    @extend .h-box-shadow__medium;
+
+    .m-card__image {
+        @include border-radii(0.25rem, 0.25rem, 0, 0);
+        width: 100%;
+        display: block;
+    }
+
+    .m-card__content {
+        padding: $card-content-spacing;
+
+        .m-card__content-title {
+            margin-top: 0;
+        }
+
+        & > p:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    .m-card__tags {
+        padding: 0 $card-content-spacing $card-content-spacing $card-content-spacing;
+    }
+
+    .m-card__actions {
+        border-top: 1px solid $light-grey;
+        padding: $card-content-spacing;
+
+        .m_card__actions-fixture {
+            position: absolute;
+            right: $card-content-spacing;
+            bottom: $card-content-spacing;
+
+            a {
+                display: inline-block;
+                width: 32px;
+                height: 32px;
+                text-align: center;
+                text-decoration: none;
+                color: $simple-yellow;
+                border: 2px solid $simple-yellow;
+                @include border-radius(90px);
+
+                .a-icon {
+                    line-height: 27px;
+                }
+            }
+        }
+    }
+}

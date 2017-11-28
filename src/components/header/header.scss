@@ -1,0 +1,60 @@
+@import '../../global/colors';
+@import '../../global/mixins';
+@import '../../global/typography';
+
+$header-height: 90px;
+
+.state-o-header--sticky {
+    margin-top: $header-height;
+}
+
+.o-header {
+    z-index: 20;
+    height: $header-height;
+    line-height: $header-height;
+    background-color: $simple-magenta;
+    color: $contrast-magenta;
+
+    .o-header__brand {
+        height: 60px;
+        margin: 15px 15px 15px 1rem;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    .o-header__main-navigation {
+        a {
+            padding: 0.5rem 0.875rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+
+    .o-header__meta-navigation {
+        float: right;
+
+        a {
+            display: inline-block;
+        }
+
+        .a-icon {
+            @include font-size(1.5);
+            @include border-radius(99px);
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            background-color: $contrast-magenta;
+            color: $simple-magenta;
+        }
+    }
+
+    &.o-header--sticky {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+}

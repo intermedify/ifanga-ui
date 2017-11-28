@@ -1,0 +1,18 @@
+@import '../../global/colors';
+@import '../../global/mixins';
+@import '../../global/ux';
+
+.a-tag {
+    @extend .ux-default;
+    @include font-size(0.875);
+    @include border-radius(100px);
+    padding: 0.25rem 0.75rem;
+
+    &.a-tag--inverse {
+        @extend .ux-inverse;
+    }
+
+    &.a-tag--magenta {
+        @extend .ux-primary;
+    }
+}

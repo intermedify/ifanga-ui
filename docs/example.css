@@ -1,0 +1,20 @@
+.example-container {
+    text-align: center;
+}
+
+.example-container [class^='w-'] span {
+    display: block;
+    background-color: #ddd;
+    font-size: 0.875rem;
+    margin: 5px;
+    padding: 15px 10px;
+}
+
+section > h2:first-child {
+    margin: 3rem 0 1.5rem;
+}
+
+.example-icon-container .a-icon {
+    font-size: 2rem;
+    padding: 1rem;
+}
