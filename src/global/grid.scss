@@ -1,12 +1,25 @@
 @import './mixins';
+@import './settings';
 
 .container {
     display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
 
-    .row {
-        width: 100%;
+    &.container--no-flex {
+        display: block;
+        flex-wrap: nowrap;
+    }
+
+    &.container--content {
+        padding: 1rem;
+        margin: 0 1rem;
+        max-width: $grid-content-width;
+        width: calc(100% - $grid-content-gutter);
+
+        @include mq('tablet') {
+            margin: 0 auto;
+        }
     }
 
     .w-auto {
@@ -15,9 +28,13 @@
         flex: 1;
     }
 
+    [class*='w-'] {
+        width: 100%;
+    }
+
     @include mq('tablet') {
         [class*='w-'] {
-            margin: 1rem;
+            // margin: 1rem;
         }
 
         .w-1 {

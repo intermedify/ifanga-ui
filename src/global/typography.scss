@@ -15,6 +15,15 @@ body {
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 1rem;
+}
+
+h1,
 .typo__h1,
 h2,
 .typo__h2,
@@ -27,7 +36,11 @@ h5,
 h6,
 .typo__h6,
 strong {
+    font-family: inherit;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
     font-weight: 700;
+    color: inherit;
 }
 
 h1,
@@ -68,6 +81,7 @@ h5 small,
 h6 small,
 .typo__h6 small {
     font-size: 65%;
+    color: $dark-grey;
 }
 
 p {
