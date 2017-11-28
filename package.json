@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "./node_modules/.bin/webpack --watch",
-        "watch": "webpack-dev-server --hot",
+        "serve": "./node_modules/.bin/webpack-dev-server --hot",
         "test": "yarn test"
     },
     "repository": {
