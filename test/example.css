@@ -4,5 +4,9 @@
 
 .example-container [class*='w-'] {
     background-color: #ddd;
-    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+section > h2:first-child {
+    margin: 3rem 0 1.5rem;
 }
