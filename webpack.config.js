@@ -1,6 +1,8 @@
+const path = require('path');
+
 const ASSET_PATH = './src';
 const ENTRY_FILE = 'ifanga.entry';
-const DEST_PATH 'dist';
+const DEST_PATH = 'dist';
 const BUNDLE_FILE = 'ifanga.bundle';
 
 module.exports = (env = {}) => {
@@ -17,7 +19,7 @@ module.exports = (env = {}) => {
                         {
                             loader: 'file-loader',
                             options: {
-                                name: '[name].css',
+                                name: `${BUNDLE_FILE}.css`,
                                 outputPath: `${DEST_PATH}/`,
                             },
                         },
@@ -36,6 +38,15 @@ module.exports = (env = {}) => {
                     ],
                 },
             ],
+        },
+        devServer: {
+            contentBase: [path.join(__dirname, 'test'), path.join(__dirname, 'dist')],
+            compress: true,
+            port: 9000,
+            disableHostCheck: true,
+            lazy: true,
+            historyApiFallback: true,
+            hot: true,
         },
     };
 };
