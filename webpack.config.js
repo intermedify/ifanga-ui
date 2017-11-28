@@ -1,20 +1,24 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const ASSET_PATH = './src';
 const ENTRY_FILE = 'ifanga.entry';
 const DEST_PATH = 'dist';
-const BUNDLE_FILE = 'ifanga.bundle';
+const BUNDLE_FILE = 'ifanga.min';
 
 const DEV_SERVER_CONTENT_BASE = path.join(__dirname, 'test');
 const DEV_SERVER_DIST_BASE = path.join(__dirname, 'dist');
 
 module.exports = (env = {}) => {
     return {
+        devtool: 'cheap-module-source-map',
         entry: [`${ASSET_PATH}/${ENTRY_FILE}.js`, `${ASSET_PATH}/${ENTRY_FILE}.scss`],
         output: {
             filename: `${DEST_PATH}/${BUNDLE_FILE}.js`,
+            hotUpdateChunkFilename: 'runtime/hot-update.js',
+            hotUpdateMainFilename: 'runtime/hot-update.json',
         },
         resolveLoader: {
             modules: [path.join(__dirname, 'node_modules')],
@@ -35,18 +39,27 @@ module.exports = (env = {}) => {
                         name: 'fonts/[name].[ext]?[hash]',
                     },
                 },
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loader: 'babel',
+                    query: {
+                        presets: ['es2015', 'stage-0'],
+                        plugins: ['transform-runtime'],
+                    },
+                },
             ],
             rules: [
                 {
                     test: /\.js$/,
                     use: ['babel'],
-                    exclude: [/node_modules/],
+                    exclude: [],
                 },
                 {
                     test: /\.(woff2?|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                     loader: 'file-loader',
                     options: {
-                        name: 'fonts/[name].[ext]?[hash]',
+                        name: 'dist/fonts/[name].[ext]?[hash]',
                     },
                 },
                 {
@@ -55,6 +68,7 @@ module.exports = (env = {}) => {
                         {
                             loader: 'file-loader',
                             options: {
+                                sourceMap: true,
                                 name: `${BUNDLE_FILE}.css`,
                                 outputPath: `${DEST_PATH}/`,
                             },
@@ -92,6 +106,11 @@ module.exports = (env = {}) => {
             new webpack.LoaderOptionsPlugin({
                 minimize: true,
                 debug: false,
+            }),
+            new UglifyJsPlugin({
+                parallel: true,
+                sourceMap: true,
+                cache: true,
             }),
         ],
         devServer: {
