@@ -4,6 +4,10 @@ class Alert extends Component {
     constructor() {
         super();
     }
+
+    attach() {
+        console.log(this);
+    }
 }
 
-export default createComponentBoundary(Alert, 'a', 'alert');
+createComponentBoundary(Alert, 'a', 'alert');

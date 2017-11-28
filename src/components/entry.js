@@ -1,1 +1,1 @@
-export Alert from './alert/alert';
+export {} from './alert/alert';

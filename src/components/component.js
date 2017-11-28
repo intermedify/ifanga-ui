@@ -1,4 +1,12 @@
+const EventEmitter = require('events');
+
 const JQUERY = !!window.jQuery;
+
+const IfangaWebComponents = (window.IfangaWebComponents = {
+    classMap: {},
+    classList: [],
+    events: new EventEmitter(),
+});
 
 class DOMComponent {
     constructor(node) {
@@ -36,6 +44,9 @@ class Component {
     get className() {
         return this._className;
     }
+
+    attach() {}
+    detach() {}
 }
 
 /**
@@ -68,10 +79,16 @@ const resolveComponentType = (type = '') => {
  * @return {Function}
  */
 const createComponentBoundary = (BoundComponent, type, name, opts = {}) => {
-    console.log(typeof BoundComponent);
     try {
+        const componentName = BoundComponent.name;
         const componentType = resolveComponentType(type);
-        return node => new BoundComponent(node, componentType ? `${componentType}-${name}` : name, opts);
+        const className = componentType ? `${componentType}-${name}` : name;
+
+        IfangaWebComponents[componentName] = BoundComponent;
+        IfangaWebComponents.classMap[className] = IfangaWebComponents[componentName];
+        IfangaWebComponents.classList.push(className);
+
+        return node => new BoundComponent(node, className, opts);
     } catch (e) {
         throw e;
     }

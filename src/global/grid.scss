@@ -28,7 +28,7 @@
         flex: 1;
     }
 
-    [class*='w-'] {
+    [class^='w-'] {
         width: 100%;
     }
 
