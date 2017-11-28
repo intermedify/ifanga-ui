@@ -7,6 +7,7 @@ yarn-error.log*
 
 # Webpack
 *.hot-update*
+runtime
 
 # Runtime data
 pids
