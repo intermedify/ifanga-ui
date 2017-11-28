@@ -7,6 +7,9 @@ const ENTRY_FILE = 'ifanga.entry';
 const DEST_PATH = 'dist';
 const BUNDLE_FILE = 'ifanga.bundle';
 
+const DEV_SERVER_CONTENT_BASE = path.join(__dirname, 'test');
+const DEV_SERVER_DIST_BASE = path.join(__dirname, 'dist');
+
 module.exports = (env = {}) => {
     return {
         entry: [`${ASSET_PATH}/${ENTRY_FILE}.js`, `${ASSET_PATH}/${ENTRY_FILE}.scss`],
@@ -92,7 +95,7 @@ module.exports = (env = {}) => {
             }),
         ],
         devServer: {
-            contentBase: [path.join(__dirname, 'test'), path.join(__dirname, 'dist')],
+            contentBase: [DEV_SERVER_CONTENT_BASE, DEV_SERVER_DIST_BASE],
             compress: true,
             port: 9000,
             disableHostCheck: true,

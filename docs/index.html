@@ -7,7 +7,29 @@
 	<link rel="stylesheet" href="ifanga.bundle.css" />
 </head>
 <body>
-	<main class="container container--no-flex container--content example-content">
+	<header class="o-header o-header--sticky">
+		<div class="h-content--limiter">
+			<div class="container">
+				<div class="w-3">
+					<img class="o-header__brand" src="http://placehold.it/200x50" alt="Logo">
+				</div>
+				<div class="w-6">
+					<ul class="o-header__main-navigation a-list a-list--links">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Near You</a></li>
+						<li><a href="#">Discover</a></li>
+					</ul>
+				</div>
+				<div class="w-3">
+					<ul class="o-header__meta-navigation a-list a-list--links a-list--pull-right">
+						<li><a href="#"><i class="a-icon a-icon__user"></i></a></li>
+						<li><a href="#"><i class="a-icon a-icon__layers"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main class="state-o-header--sticky container container--no-flex container--content example-content">
 	<section>
 			<h1>Heading 1 <small>(small abbr)</small></h1>
 			<h2>Heading 2 <small>(small abbr)</small></h2>
@@ -46,6 +68,43 @@
 					<div class="w-3"><span>w-3</span></div>
 					<div class="w-3"><span>w-3</span></div>
 				</div>
+		</section>
+		<section>
+			<h2>Card <small><code>(.m-card)</code></small></h2>
+			<div class="container">
+				<div class="w-6">
+					<article class="m-card">
+						<img class="m-card__image" src="http://placehold.it/300x200" alt="Placeholder">
+						<div class="m-card__content">
+							<h4 class="m-card__content-title">Some card title</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi iaculis tortor a orci tristique eleifend. Etiam id justo eleifend, porttitor lectus...</p>
+						</div>
+						<div class="m-card__tags">
+							<ul class="a-list a-list--tags">
+								<li><span class="a-tag">#switzerland</span></li>
+								<li><span class="a-tag">#landscape</span></li>
+								<li><span class="a-tag">#moisture</span></li>
+							</ul>
+						</div>
+						<div class="m-card__actions">
+							<div class="m-button-group">
+								<a href="#" class="a-button a-button--icon a-button--primary">
+									<i class="a-icon a-icon__heart"></i>
+								</a>
+								<a href="#" class="a-button a-button--icon">
+									<i class="a-icon a-icon__message-circle"></i>
+									Leave a Comment
+								</a>
+							</div>
+							<div class="m_card__actions-fixture">
+								<a href="#">
+									<i class="a-icon a-icon__bell"></i>
+								</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
 		</section>
 		<section>
 			<h2>Icons <small><code>(a-icon)</code></small></h2>
