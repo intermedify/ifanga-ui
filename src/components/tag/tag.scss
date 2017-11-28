@@ -1,0 +1,20 @@
+@import '../../global/colors';
+@import '../../global/mixins';
+
+.a-tag {
+    @include font-size(0.875);
+    @include border-radius(100px);
+    padding: 0.25rem 0.75rem;
+    background-color: $light-grey;
+    color: $simple-grey;
+
+    &.a-tag--inverse {
+        background-color: $simple-grey;
+        color: $light-grey;
+    }
+
+    &.a-tag--magenta {
+        background-color: $simple-magenta;
+        color: $contrast-magenta;
+    }
+}
