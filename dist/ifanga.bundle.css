@@ -9,16 +9,26 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
-  .container .row {
-    width: 100%; }
+  .container.container--no-flex {
+    display: block;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap; }
+  .container.container--content {
+    padding: 1rem;
+    margin: 0 1rem;
+    max-width: 1440px;
+    width: calc(100% - $grid-content-gutter); }
+    @media only screen and (min-width: 768px) {
+      .container.container--content {
+        margin: 0 auto; } }
   .container .w-auto {
     width: auto;
     -webkit-box-flex: 1;
     -ms-flex: 1;
         flex: 1; }
+  .container [class*='w-'] {
+    width: 100%; }
   @media only screen and (min-width: 768px) {
-    .container [class*='w-'] {
-      margin: 1rem; }
     .container .w-1 {
       width: 8.333333%; }
     .container .w-2 {
@@ -53,6 +63,14 @@ body {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1rem; }
+
+h1,
 .typo__h1,
 h2,
 .typo__h2,
@@ -65,7 +83,11 @@ h5,
 h6,
 .typo__h6,
 strong {
-  font-weight: 700; }
+  font-family: inherit;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: inherit; }
 
 h1,
 .typo__h1 {
@@ -109,7 +131,8 @@ h5 small,
 .typo__h5 small,
 h6 small,
 .typo__h6 small {
-  font-size: 65%; }
+  font-size: 65%;
+  color: #595d61; }
 
 p {
   margin-bottom: 1rem; }
