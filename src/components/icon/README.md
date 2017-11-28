@@ -1,5 +1,13 @@
 # Component: Icon
 
+## Usage
+
+> **Note:** The `a-icon` base-class is important and needed to display the icon itself!
+
+```html
+<i class="a-icon a-icon__activity">activity</i>
+```
+
 ## Available icons
 
 * activity

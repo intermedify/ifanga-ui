@@ -1,4 +1,4 @@
-# Component: Tag
+# Atom: Tag
 
 ## Available modifiers
 
