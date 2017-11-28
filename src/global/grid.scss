@@ -1,6 +1,11 @@
 @import './mixins';
 @import './settings';
 
+.h-content--limiter {
+    max-width: $grid-content-width;
+    margin: 0 auto;
+}
+
 .container {
     display: -webkit-box;
     display: flex;
