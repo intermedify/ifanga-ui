@@ -1,13 +1,8 @@
-import { Component, createComponentBoundary } from '../component';
+import { Component, inject, Injectable } from '../component';
 
+@inject([Injectable.ComponentState])
 class Alert extends Component {
-    constructor() {
-        super();
-    }
-
     attach() {
         console.log(this);
     }
 }
-
-createComponentBoundary(Alert, 'a', 'alert');

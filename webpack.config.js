@@ -8,7 +8,7 @@ const ENTRY_FILE = 'ifanga.entry';
 const DEST_PATH = 'dist';
 const BUNDLE_FILE = 'ifanga.min';
 
-const DEV_SERVER_CONTENT_BASE = path.join(__dirname, 'test');
+const DEV_SERVER_CONTENT_BASE = path.join(__dirname, 'docs');
 const DEV_SERVER_DIST_BASE = path.join(__dirname, 'dist');
 
 module.exports = (env = {}) => {
@@ -45,7 +45,7 @@ module.exports = (env = {}) => {
                     loader: 'babel',
                     query: {
                         presets: ['es2015', 'stage-0'],
-                        plugins: ['transform-runtime'],
+                        plugins: ['transform-decorators-legacy'],
                     },
                 },
             ],
@@ -59,7 +59,7 @@ module.exports = (env = {}) => {
                     test: /\.(woff2?|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                     loader: 'file-loader',
                     options: {
-                        name: 'dist/fonts/[name].[ext]?[hash]',
+                        name: 'fonts/[name].[ext]?[hash]',
                     },
                 },
                 {

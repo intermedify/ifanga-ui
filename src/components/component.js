@@ -78,20 +78,24 @@ const resolveComponentType = (type = '') => {
  * @param {string} name
  * @return {Function}
  */
-const createComponentBoundary = (BoundComponent, type, name, opts = {}) => {
+const createComponentBoundary = (BoundComponent, opts = {}) => {
     try {
         const componentName = BoundComponent.name;
-        const componentType = resolveComponentType(type);
-        const className = componentType ? `${componentType}-${name}` : name;
-
         IfangaWebComponents[componentName] = BoundComponent;
-        IfangaWebComponents.classMap[className] = IfangaWebComponents[componentName];
-        IfangaWebComponents.classList.push(className);
-
-        return node => new BoundComponent(node, className, opts);
+        IfangaWebComponents[componentName].create = (...args) => new BoundComponent(...args);
     } catch (e) {
         throw e;
     }
+};
+
+export function inject = (injectables = []) => {
+    return function usesInjectables(target) {
+        target.__inject = injectables;
+    }
+}
+
+export const Injectable = {
+    ComponentState: () => void 0,
 };
 
 export { createComponentBoundary, Component, DOMComponent, resolveComponentType };
