@@ -4,10 +4,6 @@
 
 $header-height: 90px;
 
-.state-o-header--sticky {
-    margin-top: $header-height;
-}
-
 .o-header {
     z-index: 20;
     height: $header-height;
@@ -26,9 +22,15 @@ $header-height: 90px;
 
     .o-header__main-navigation {
         a {
+            @include border-radius(99px);
+            @include transition(all, 0.3s, ease-in-out);
             padding: 0.5rem 0.875rem;
             text-transform: uppercase;
             font-weight: 700;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
         }
     }
 
@@ -42,12 +44,20 @@ $header-height: 90px;
         .a-icon {
             @include font-size(1.5);
             @include border-radius(99px);
+            @include transition(all, 0.15s, ease-in-out);
+            border: 2px solid $contrast-magenta;
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             line-height: 38px;
-            background-color: $contrast-magenta;
-            color: $simple-magenta;
+            background-color: transparent;
+            border-color: $contrast-magenta;
+            color: $contrast-magenta;
+
+            &:hover {
+                color: $simple-magenta;
+                background-color: $contrast-magenta;
+            }
         }
     }
 
@@ -56,5 +66,11 @@ $header-height: 90px;
         left: 0;
         right: 0;
         top: 0;
+    }
+}
+
+@include mq('tablet') {
+    .state-o-header--sticky {
+        margin-top: $header-height;
     }
 }
