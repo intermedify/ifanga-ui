@@ -2,7 +2,7 @@
 
 ## Available modifiers
 
-`inverse` and `magenta`
+`inverse` and `primary`
 
 ###### Planned
 
@@ -13,5 +13,5 @@
 ```html
 <span class="a-tag">#hashtag</span>
 <span class="a-tag a-tag--inverse">#andthis</span>
-<span class="a-tag a-tag--magenta">#something</span>
+<span class="a-tag a-tag--primary">#something</span>
 ```

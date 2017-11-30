@@ -18,6 +18,6 @@ notification element.
 		<h6>There went something wrong :(</h6>
 		<p>Add any error or issue content for the pop-up here.</p>
 	</div>
-	<i class="m-alert__action a-icon a-icon__x-circle"></i>
+	<i class="m-alert__action js-m-alert__action a-icon a-icon__x-circle"></i>
 </div>
 ```

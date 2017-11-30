@@ -41,10 +41,16 @@
 			<p>Proin ut nibh vitae tellus venenatis luctus et id ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi id erat nisl. Fusce pretium, eros ut vestibulum viverra, dui quam varius eros, sed scelerisque nulla sem ut erat. Morbi elementum efficitur metus ut imperdiet. Aliquam malesuada ligula non ligula varius cursus. Morbi ullamcorper arcu ac sapien iaculis malesuada.</p>
 		</section>
 		<section>
-			<h2>Tag <small>(<code>a-tag</code>)</small></h2>
+			<h2>Tag <small><code>(a-tag)</code></small></h2>
 			<span class="a-tag">#default</span>
 			<span class="a-tag a-tag--inverse">#inverse</span>
-			<span class="a-tag a-tag--magenta">#magenta</span>
+			<span class="a-tag a-tag--primary">#primary</span>
+		</section>
+		<section>
+			<h2>Button <small><code>(a-button)</code></small></h2>
+			<a href="#button1" class="a-button">Button</a>
+			<a href="#button2" class="a-button a-button--inverse">Inverse</a>
+			<a href="#button3" class="a-button a-button--primary">Primary</a>
 		</section>
 		<section>
 				<h2>Grid <small>(<code>container</code>, <code>w-*</code>)</small></h2>
@@ -121,7 +127,7 @@
 					<h6>Dismissible alert</h6>
 					<p>The user can dismiss/close this alert box via the action in the top right corner.</p>
 				</div>
-				<i class="m-alert__action a-icon a-icon__x-circle"></i>
+				<i class="m-alert__action js-m-alert__action a-icon a-icon__x-circle"></i>
 			</div>
 			<div class="m-alert m-alert--warning w-8">
 				<i class="m-alert__symbol a-icon a-icon__alert-triangle"></i>
