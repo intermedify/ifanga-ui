@@ -2,6 +2,14 @@
 
 tbd.
 
+### Installation
+```bash
+npm install --save @ifanga/ui # via npm
+yarn add @ifanga/ui # or with yarn
+git clone https://github.com/intermedify/ifanga-ui.git # or via git
+
+```
+
 ## Contents
 
 ### Globals
