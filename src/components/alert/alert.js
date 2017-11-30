@@ -1,8 +1,12 @@
-import { Component, inject, Injectable } from '../component';
+import { Component } from '../component';
+import { inject, registerComponent, ComponentState } from '../annotations';
 
-@inject([Injectable.ComponentState])
+@registerComponent
+@inject([ComponentState])
 class Alert extends Component {
     attach() {
         console.log(this);
     }
 }
+
+export default Alert;

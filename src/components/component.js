@@ -1,12 +1,51 @@
 const EventEmitter = require('events');
-
+const engine = require('./bootstrap');
 const JQUERY = !!window.jQuery;
 
 const IfangaWebComponents = (window.IfangaWebComponents = {
-    classMap: {},
-    classList: [],
     events: new EventEmitter(),
+    bootstrap: engine.bootstrap,
+    registered: {},
 });
+
+/**
+ * Resolve a component type annotation to the css type
+ * @param {string} type         named type
+ * @return {null|string}        type or null
+ */
+const resolveComponentType = (type = '') => {
+    switch (type.toLowerCase()) {
+        case 'atom':
+        case 'a':
+            return 'a';
+        case 'molecule':
+        case 'm':
+            return 'm';
+        case 'organism':
+        case 'o':
+            return 'o';
+        case 'template':
+        case 't':
+            return 't';
+        default:
+            return null;
+    }
+};
+
+/**
+ * @param {string} type
+ * @param {string} name
+ * @return {Function}
+ */
+const createComponentBoundary = BoundComponent => {
+    try {
+        const componentName = BoundComponent.name;
+        IfangaWebComponents[componentName] = BoundComponent;
+        IfangaWebComponents[componentName].create = (...args) => new BoundComponent(...args);
+    } catch (e) {
+        throw e;
+    }
+};
 
 class DOMComponent {
     constructor(node) {
@@ -49,53 +88,5 @@ class Component {
     detach() {}
 }
 
-/**
- * Resolve a component type annotation to the css type
- * @param {string} type         named type
- * @return {null|string}        type or null
- */
-const resolveComponentType = (type = '') => {
-    switch (type.toLowerCase()) {
-        case 'atom':
-        case 'a':
-            return 'a';
-        case 'molecule':
-        case 'm':
-            return 'm';
-        case 'organism':
-        case 'o':
-            return 'o';
-        case 'template':
-        case 't':
-            return 't';
-        default:
-            return null;
-    }
-};
-
-/**
- * @param {string} type
- * @param {string} name
- * @return {Function}
- */
-const createComponentBoundary = (BoundComponent, opts = {}) => {
-    try {
-        const componentName = BoundComponent.name;
-        IfangaWebComponents[componentName] = BoundComponent;
-        IfangaWebComponents[componentName].create = (...args) => new BoundComponent(...args);
-    } catch (e) {
-        throw e;
-    }
-};
-
-export function inject = (injectables = []) => {
-    return function usesInjectables(target) {
-        target.__inject = injectables;
-    }
-}
-
-export const Injectable = {
-    ComponentState: () => void 0,
-};
-
+// Injectables down below
 export { createComponentBoundary, Component, DOMComponent, resolveComponentType };
