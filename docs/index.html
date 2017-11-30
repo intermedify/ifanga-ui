@@ -108,11 +108,33 @@
 		</section>
 		<section>
 			<h2>Alert <small><code>(m-alert)</code></small></h2>
-			<div class="m-alert" ifanga-component="Alert">
-				<i class="a-icon a-icon__info"></i>
+			<div class="m-alert w-8">
+				<i class="m-alert__symbol a-icon a-icon__info"></i>
 				<div class="m-alert__content">
-					<h6>There went something wrong!</h6>
-					<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced.</p>
+					<h6>Heads up!</h6>
+					<p>Add any informational content for the pop-up here.</p>
+				</div>
+			</div>
+			<div class="m-alert w-8" ifanga-component="Alert">
+				<i class="m-alert__symbol a-icon a-icon__award"></i>
+				<div class="m-alert__content">
+					<h6>Dismissible alert</h6>
+					<p>The user can dismiss/close this alert box via the action in the top right corner.</p>
+				</div>
+				<i class="m-alert__action a-icon a-icon__x-circle"></i>
+			</div>
+			<div class="m-alert m-alert--warning w-8">
+				<i class="m-alert__symbol a-icon a-icon__alert-triangle"></i>
+				<div class="m-alert__content">
+					<h6>Some Login happened</h6>
+					<p>Add any warning or info content for the pop-up here.</p>
+				</div>
+			</div>
+			<div class="m-alert m-alert--error w-8">
+				<i class="m-alert__symbol a-icon a-icon__alert-octagon"></i>
+				<div class="m-alert__content">
+					<h6>There went something wrong :(</h6>
+					<p>Add any error or issue content for the pop-up here.</p>
 				</div>
 			</div>
 		</section>

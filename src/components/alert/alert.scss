@@ -1,0 +1,65 @@
+@import '../../global/box-shadow';
+@import '../../global/typography';
+@import '../../global/mixins';
+@import '../../global/colors';
+
+.m-alert {
+    @extend .h-box-shadow__modal;
+    @include border-radius(5px);
+    @include transition(all, 0.2s, ease-in-out);
+    position: relative;
+    padding: 1rem 2rem;
+    margin: 0 0 2rem 0;
+    background-color: $light-grey;
+    border: 1px solid $semi-grey;
+    border-top: 7px solid $semi-grey;
+    display: flex;
+
+    &.state-m-alert--dismissed {
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        border-color: transparent;
+        border: none;
+        color: transparent;
+        opacity: 0.75;
+        margin: 0;
+    }
+
+    .m-alert__symbol {
+        @include font-size(2);
+        margin-right: 2rem;
+        line-height: inherit;
+    }
+
+    .m-alert__action {
+        @include font-size(1.225rem);
+        position: absolute;
+        right: 0.875rem;
+        top: 0.875rem;
+        cursor: pointer;
+    }
+
+    .m-alert__content {
+        > h6 {
+            margin-top: 0;
+            margin-bottom: 0.25rem;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &.m-alert--warning {
+        background-color: lighten($simple-yellow, 10);
+        border-color: darken($simple-yellow, 10);
+        color: darken($simple-yellow, 50);
+    }
+
+    &.m-alert--error {
+        background-color: lighten($simple-red, 20);
+        border-color: darken($simple-red, 10);
+        color: darken($simple-red, 30);
+    }
+}

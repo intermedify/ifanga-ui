@@ -1,4 +1,6 @@
-export const SELECTOR_ATTR = 'ifanga-component';
+export const ATTR_PREFIX = 'ifanga';
+export const SELECTOR_ATTR = `${ATTR_PREFIX}-component`;
+export const ID_ATTR = `${ATTR_PREFIX}-mem-id`;
 
 export const bootstrap = () => {
     const root = document.body;
@@ -17,6 +19,8 @@ export const bootstrap = () => {
         const ComponentInst = new IfangaWebComponents[componentName](node, node.className, {});
 
         IfangaWebComponents.registered[componentId] = ComponentInst;
-        node.setAttribute('ifanga-mem-id', componentId);
+        node.setAttribute(ID_ATTR, componentId);
+
+        ComponentInst.init();
     });
 };

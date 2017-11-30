@@ -1,3 +1,5 @@
+import { abstract } from './annotations';
+
 const EventEmitter = require('events');
 const engine = require('./bootstrap');
 const JQUERY = !!window.jQuery;
@@ -57,7 +59,7 @@ class DOMComponent {
     }
 
     get $() {
-        return JQUERY ? $(this.node) : node;
+        return JQUERY ? $(this.node) : this.node;
     }
 }
 
@@ -74,18 +76,19 @@ class Component {
         this._domNode = new DOMComponent(node);
         this._className = className;
         this.modifier = opts.modifier;
+        this.decorator = opts.decorator;
     }
 
     get node() {
-        return this._domNode;
+        return this._domNode.$;
     }
 
     get className() {
         return this._className;
     }
 
-    attach() {}
-    detach() {}
+    @abstract
+    init() {}
 }
 
 // Injectables down below

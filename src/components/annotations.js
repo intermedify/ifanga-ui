@@ -12,6 +12,12 @@ export function inject(injectables = []) {
     };
 }
 
+export function abstract(target, name, descriptor) {
+    descriptor.value = () => {
+        throw new Error(`${target.constructor.name}.${name} not implemented.`);
+    };
+}
+
 export function registerComponent(Component) {
     createComponentBoundary(Component);
 }
